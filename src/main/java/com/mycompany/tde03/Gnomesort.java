@@ -11,7 +11,7 @@ package com.mycompany.tde03;
 
 public class Gnomesort {
     private long numSwap;
-    private int numIteracoes;
+    private long numIteracoes;
     private long tempo;
 
     public Gnomesort(){this.numSwap=0;this.numIteracoes=0;}
@@ -38,20 +38,20 @@ public class Gnomesort {
         this.tempo = endTime - startTime;
         return a;
     }
-    public String temporizador() {
-        long minutos = (this.tempo / 1000) / 60;
-        long segundos = (this.tempo / 1000) % 60;
-        long miliSegundos = this.tempo % 1000;
+    public String temporizador(long tempo) {
+        long minutos = (tempo / 1000) / 60;
+        long segundos = (tempo / 1000) % 60;
+        long miliSegundos = tempo % 1000;
 
         // Formatar tempo final como uma string
         String tempoFinal = String.format("%02d:%02d:%03d", minutos, segundos, miliSegundos);
         return tempoFinal;
     }
     
-    public void resultados(){
+    public void resultados(long tempoMedio){
         System.out.println("Numero total de trocas: " + this.numSwap);
         System.out.println("Numero total de iteracoes: " + this.numIteracoes);
-        System.out.println("Tempo de execucao: " + temporizador());
+        System.out.println("Tempo de execucao: " + temporizador(tempoMedio));
     }
 
 
@@ -59,7 +59,7 @@ public class Gnomesort {
         return this.numSwap;
     }
 
-    public int getNumIteracoes() {
+    public long getNumIteracoes() {
         return this.numIteracoes;
     }
     public long getTempo(){

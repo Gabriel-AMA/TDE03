@@ -9,9 +9,8 @@ package com.mycompany.tde03;
  * @author otaku
  */
 public class Quicksort {
-    private int numSwap;
-    private int numIteracoes;
-    private long tempo;
+    private long numSwap;
+    private long numIteracoes;
 
     public Quicksort(){this.numSwap=0;this.numIteracoes-=0;}
 
@@ -35,48 +34,44 @@ public class Quicksort {
     }
     private int particao(int[] a, int inferior, int superior){
         int pivo = a[superior];
-        int propivo = inferior-1;
+        int proPivo = inferior-1;
         for(int i= inferior; i < superior; i++){
             if(a[i]<=pivo){
-                propivo++;
-                int temp = a[propivo];
-                a[propivo] = a[i];
+                proPivo++;
+                int temp = a[proPivo];
+                a[proPivo] = a[i];
                 a[i] = temp;
                 this.numSwap++;
             }
         }
-        int temp = a[propivo+1];
-        a[propivo+1]= a[superior];
+        int temp = a[proPivo+1];
+        a[proPivo+1]= a[superior];
         a[superior] = temp;
-        return propivo+1;
+        return proPivo+1;
     }
     
-    public String temporizador() {
-        long minutos = (this.tempo / 1000) / 60;
-        long segundos = (this.tempo / 1000) % 60;
-        long miliSegundos = this.tempo % 1000;
+    public String temporizador(long tempo) {
+        long minutos = (tempo / 1000) / 60;
+        long segundos = (tempo / 1000) % 60;
+        long miliSegundos = tempo % 1000;
 
         // Formatar tempo final como uma string
         String tempoFinal = String.format("%02d:%02d:%03d", minutos, segundos, miliSegundos);
         return tempoFinal;
     }
     
-    public void resultados(){
+    public void resultados(long tempoMedio){
         System.out.println("Numero total de trocas: " + this.numSwap);
         System.out.println("Numero total de iteracoes: " + this.numIteracoes);
-        System.out.println("Tempo de execucao: " + temporizador());
+        System.out.println("Tempo de execucao: " + temporizador(tempoMedio));
     }
     
-    public int getNumSwap(){
+    public long getNumSwap(){
         return this.numSwap;
     }
 
-    public int getNumIteracoes() {
+    public long getNumIteracoes() {
         return numIteracoes;
-    }
-    
-    public long getTempo(){
-        return this.tempo;
     }
 }
 
