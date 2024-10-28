@@ -11,11 +11,14 @@ package com.mycompany.tde03;
 public class Quicksort {
     private int numSwap;
     private int numIteracoes;
+    private long tempo;
 
     public Quicksort(){this.numSwap=0;this.numIteracoes-=0;}
 
 
     public int[] Sort(int[]a){
+        this.numSwap=0;
+        this.numIteracoes=0;
         a = Sort(a, 0, a.length-1);
         return a;
     }
@@ -47,12 +50,33 @@ public class Quicksort {
         a[superior] = temp;
         return propivo+1;
     }
+    
+    public String temporizador() {
+        long minutos = (this.tempo / 1000) / 60;
+        long segundos = (this.tempo / 1000) % 60;
+        long miliSegundos = this.tempo % 1000;
+
+        // Formatar tempo final como uma string
+        String tempoFinal = String.format("%02d:%02d:%03d", minutos, segundos, miliSegundos);
+        return tempoFinal;
+    }
+    
+    public void resultados(){
+        System.out.println("Numero total de trocas: " + this.numSwap);
+        System.out.println("Numero total de iteracoes: " + this.numIteracoes);
+        System.out.println("Tempo de execucao: " + temporizador());
+    }
+    
     public int getNumSwap(){
         return this.numSwap;
     }
 
     public int getNumIteracoes() {
         return numIteracoes;
+    }
+    
+    public long getTempo(){
+        return this.tempo;
     }
 }
 
