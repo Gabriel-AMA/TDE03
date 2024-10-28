@@ -47,13 +47,9 @@ public class TDE03 {
             datasetIteracoesGS.addValue(gs.getNumIteracoes(), "Gnomesort", Integer.toString(tamanhos[i]));
             System.out.println("-----TAMANHO: " + tamanhos[i]+"-----");
             System.out.println("QuickSort");
-            System.out.println(" - Tempo medio: " + tempoMedio + " ms");
-            System.out.println(" - Numero de trocas: "+ qs.getNumSwap());
-            System.out.println(" - Numero de Iteracoes: "+ qs.getNumIteracoes());
+            qs.resultados(tempoMedio);
             System.out.println("GnomeSort");
-            System.out.println(" - Tempo medio: " + tempoMedioGS + " ms");
-            System.out.println(" - Numero de trocas: "+ gs.getNumSwap());
-            System.out.println(" - Numero de Iteracoes: "+ gs.getNumIteracoes());
+            gs.resultados(tempoMedioGS);
             }
         grafico.graficoTempo(datasetTempoQS);
         grafico.graficoTroca(datasetTrocaQS);
