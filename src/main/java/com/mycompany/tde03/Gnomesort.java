@@ -3,7 +3,7 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
  */
 package com.mycompany.tde03;
-
+import org.jfree.data.category.DefaultCategoryDataset;
 /**
  *
  * @author otaku
@@ -12,58 +12,48 @@ package com.mycompany.tde03;
 public class Gnomesort {
     private long numSwap;
     private long numIteracoes;
-    private long tempo;
+    private long tempoExe;
 
-    public Gnomesort(){this.numSwap=0;this.numIteracoes=0;}
-
-    public int[] Sort(int[] a) {
+    public Gnomesort(){
         this.numSwap=0;
         this.numIteracoes=0;
+        this.tempoExe=0;
+    }
+    
+    
+    public void Sort(int[] lista, int tamanho) {
         long startTime = System.currentTimeMillis();
+        long endTime = System.currentTimeMillis();
         int index=0;
-        while (index < a.length){
+        while (index < tamanho-1){
             this.numIteracoes++;
-            if (index==0 || a[index] >= a[index-1]) {
+            if (index==0 || lista[index] >= lista[index-1]) {
                 index++;
             } else {
-                int temp = a[index];
-                a[index] = a[index-1];
-                a[index-1] = temp;
+                int temp = lista[index];
+                lista[index] = lista[index-1];
+                lista[index-1] = temp;
                 index--;
                 this.numSwap++;
 
             }
         }
-        long endTime = System.currentTimeMillis();
-        this.tempo = endTime - startTime;
-        return a;
+        this.tempoExe += endTime - startTime;
     }
-    public String temporizador(long tempo) {
-        long minutos = (tempo / 1000) / 60;
-        long segundos = (tempo / 1000) % 60;
-        long miliSegundos = tempo % 1000;
-
-        // Formatar tempo final como uma string
+    public void resultados(DefaultCategoryDataset dados, DefaultCategoryDataset tempo, int tamanho) {
+        long minutos = (this.tempoExe / 1000) / 60;
+        long segundos = (this.tempoExe / 1000) % 60;
+        long miliSegundos = this.tempoExe % 1000;
+        
+        tempo.addValue(this.tempoExe/5, "Gnomesort", Integer.toString(tamanho));
+        dados.addValue(this.numSwap/5, "Troca", Integer.toString(tamanho));
+        dados.addValue(this.numIteracoes/5, "Iterações", Integer.toString(tamanho));
+        
         String tempoFinal = String.format("%02d:%02d:%03d", minutos, segundos, miliSegundos);
-        return tempoFinal;
-    }
-    
-    public void resultados(long tempoMedio){
+        System.out.println("---Resultados GnomeSort---");
         System.out.println("Numero total de trocas: " + this.numSwap);
         System.out.println("Numero total de iteracoes: " + this.numIteracoes);
-        System.out.println("Tempo de execucao: " + temporizador(tempoMedio));
-    }
-
-
-    public long getNumSwap(){
-        return this.numSwap;
-    }
-
-    public long getNumIteracoes() {
-        return this.numIteracoes;
-    }
-    public long getTempo(){
-        return this.tempo;
+        System.out.println("Tempo de Execucao: "+tempoFinal);
     }
     
 }

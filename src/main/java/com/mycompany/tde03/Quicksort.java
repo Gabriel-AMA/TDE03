@@ -11,8 +11,13 @@ package com.mycompany.tde03;
 public class Quicksort {
     private long numSwap;
     private long numIteracoes;
+    private long tempoExe;
 
-    public Quicksort(){this.numSwap=0;this.numIteracoes-=0;}
+    public Quicksort(){
+        this.numSwap=0;
+        this.numIteracoes-=0;
+        this.tempoExe=0;
+    }
 
 
     public int[] Sort(int[]a){
