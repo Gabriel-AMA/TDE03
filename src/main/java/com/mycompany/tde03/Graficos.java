@@ -36,23 +36,10 @@ public class Graficos {
         frame.pack();
         frame.setVisible(true);
     }
-    public void graficoTroca(DefaultCategoryDataset dataset){
-        JFreeChart barChart = ChartFactory.createBarChart("Numero de Trocas", 
+    public void graficoDados(DefaultCategoryDataset dataset, String nome){
+        JFreeChart barChart = ChartFactory.createBarChart("Dados Gerados: "+ nome, 
                 "Tamanho do Vetor", 
                 "Quantidade de Trocas", 
-                dataset);
-        ChartPanel chartPanel = new ChartPanel(barChart);
-        chartPanel.setPreferredSize(new java.awt.Dimension(800, 600));
-        JFrame frame = new JFrame();
-        frame.setContentPane(chartPanel);
-        frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-        frame.pack();
-        frame.setVisible(true);
-    }
-    public void graficoIteracoes(DefaultCategoryDataset dataset){
-        JFreeChart barChart = ChartFactory.createBarChart("Numero de Iteracoes", 
-                "Tamanho do Vetor", 
-                "Quantidade de Iteracoes", 
                 dataset);
         ChartPanel chartPanel = new ChartPanel(barChart);
         chartPanel.setPreferredSize(new java.awt.Dimension(800, 600));
