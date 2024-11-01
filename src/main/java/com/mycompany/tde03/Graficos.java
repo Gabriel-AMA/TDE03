@@ -18,16 +18,15 @@ import org.jfree.data.category.DefaultCategoryDataset;
  */
 public class Graficos {
     
-    public void graficoTempo(DefaultCategoryDataset dataset){
+    public void graficoTempo(DefaultCategoryDataset dataset, String nome){
         JFreeChart lineChart = ChartFactory.createLineChart(
-                "Tempo de Execução",
+                "Tempo de Execução: "+nome,
                 "Tamanho do Vetor",
                 "Tempo (ms)",
                 dataset,
                 PlotOrientation.VERTICAL,
                 true, true, false);
 
-        // Exibe o gráfico
         ChartPanel chartPanel = new ChartPanel(lineChart);
         chartPanel.setPreferredSize(new java.awt.Dimension(800, 600));
         JFrame frame = new JFrame();
@@ -36,23 +35,11 @@ public class Graficos {
         frame.pack();
         frame.setVisible(true);
     }
-    public void graficoTroca(DefaultCategoryDataset dataset){
-        JFreeChart barChart = ChartFactory.createBarChart("Numero de Trocas", 
+    public void graficoTI(DefaultCategoryDataset dataset, String nome){
+        JFreeChart barChart = ChartFactory.createBarChart(
+                "Resultados: "+nome, 
                 "Tamanho do Vetor", 
                 "Quantidade de Trocas", 
-                dataset);
-        ChartPanel chartPanel = new ChartPanel(barChart);
-        chartPanel.setPreferredSize(new java.awt.Dimension(800, 600));
-        JFrame frame = new JFrame();
-        frame.setContentPane(chartPanel);
-        frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-        frame.pack();
-        frame.setVisible(true);
-    }
-    public void graficoIteracoes(DefaultCategoryDataset dataset){
-        JFreeChart barChart = ChartFactory.createBarChart("Numero de Iteracoes", 
-                "Tamanho do Vetor", 
-                "Quantidade de Iteracoes", 
                 dataset);
         ChartPanel chartPanel = new ChartPanel(barChart);
         chartPanel.setPreferredSize(new java.awt.Dimension(800, 600));
