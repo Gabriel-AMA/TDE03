@@ -20,7 +20,7 @@ public class Graficos {
     
     public void graficoTempo(DefaultCategoryDataset dataset){
         JFreeChart lineChart = ChartFactory.createLineChart(
-                "Tempo de Execução do ",
+                "Tempo de Execução",
                 "Tamanho do Vetor",
                 "Tempo (ms)",
                 dataset,
