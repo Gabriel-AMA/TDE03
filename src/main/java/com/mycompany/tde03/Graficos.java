@@ -20,42 +20,29 @@ public class Graficos {
     
     public void graficoTempo(DefaultCategoryDataset dataset){
         JFreeChart lineChart = ChartFactory.createLineChart(
-                "Tempo de Execução do ",
+                "Tempo de Execução",
                 "Tamanho do Vetor",
                 "Tempo (ms)",
                 dataset,
                 PlotOrientation.VERTICAL,
                 true, true, false);
 
-        // Exibe o gráfico
         ChartPanel chartPanel = new ChartPanel(lineChart);
-        chartPanel.setPreferredSize(new java.awt.Dimension(800, 600));
+        chartPanel.setPreferredSize(new java.awt.Dimension(1000, 1000));
         JFrame frame = new JFrame();
         frame.setContentPane(chartPanel);
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         frame.pack();
         frame.setVisible(true);
     }
-    public void graficoTroca(DefaultCategoryDataset dataset){
-        JFreeChart barChart = ChartFactory.createBarChart("Numero de Trocas", 
+    public void graficoTI(DefaultCategoryDataset dataset, String nome){
+        JFreeChart areaChart = ChartFactory.createBarChart(
+                "Resultados" + nome, 
                 "Tamanho do Vetor", 
-                "Quantidade de Trocas", 
+                "Quantidade", 
                 dataset);
-        ChartPanel chartPanel = new ChartPanel(barChart);
-        chartPanel.setPreferredSize(new java.awt.Dimension(800, 600));
-        JFrame frame = new JFrame();
-        frame.setContentPane(chartPanel);
-        frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-        frame.pack();
-        frame.setVisible(true);
-    }
-    public void graficoIteracoes(DefaultCategoryDataset dataset){
-        JFreeChart barChart = ChartFactory.createBarChart("Numero de Iteracoes", 
-                "Tamanho do Vetor", 
-                "Quantidade de Iteracoes", 
-                dataset);
-        ChartPanel chartPanel = new ChartPanel(barChart);
-        chartPanel.setPreferredSize(new java.awt.Dimension(800, 600));
+        ChartPanel chartPanel = new ChartPanel(areaChart);
+        chartPanel.setPreferredSize(new java.awt.Dimension(1000, 1000));
         JFrame frame = new JFrame();
         frame.setContentPane(chartPanel);
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
