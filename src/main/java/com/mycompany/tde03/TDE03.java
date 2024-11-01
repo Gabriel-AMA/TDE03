@@ -11,18 +11,16 @@ public class TDE03 {
         CountingSort cs = new CountingSort(tamanhos, seeds, testes);
         Graficos grafico = new Graficos();
         
-        DefaultCategoryDataset tempoQS = new DefaultCategoryDataset();
-        DefaultCategoryDataset dadosQS = new DefaultCategoryDataset();
-        DefaultCategoryDataset tempoCS = new DefaultCategoryDataset();
-        DefaultCategoryDataset dadosCS = new DefaultCategoryDataset();
+        DefaultCategoryDataset tempo = new DefaultCategoryDataset();
+        DefaultCategoryDataset dadosQ = new DefaultCategoryDataset();
+        DefaultCategoryDataset dadosC = new DefaultCategoryDataset();
         
-        qs.sort(tempoQS, dadosQS);
-        cs.sort(tempoCS, dadosCS);
+        qs.sort(tempo, dadosQ);
+        cs.sort(tempo, dadosC);
         
-        grafico.graficoTempo(tempoQS,"Quicksort");
-        grafico.graficoTI(dadosQS,"Quicksort");
-        grafico.graficoTempo(tempoCS,"Countingsort");
-        grafico.graficoTI(dadosCS,"Countingsort");
+        grafico.graficoTempo(tempo);
+        grafico.graficoTI(dadosQ, "QuickSort");
+        grafico.graficoTI(dadosC, "CountingSort");
 
     }
 }

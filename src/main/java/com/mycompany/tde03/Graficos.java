@@ -18,9 +18,9 @@ import org.jfree.data.category.DefaultCategoryDataset;
  */
 public class Graficos {
     
-    public void graficoTempo(DefaultCategoryDataset dataset, String nome){
+    public void graficoTempo(DefaultCategoryDataset dataset){
         JFreeChart lineChart = ChartFactory.createLineChart(
-                "Tempo de Execução: "+nome,
+                "Tempo de Execução",
                 "Tamanho do Vetor",
                 "Tempo (ms)",
                 dataset,
@@ -28,7 +28,7 @@ public class Graficos {
                 true, true, false);
 
         ChartPanel chartPanel = new ChartPanel(lineChart);
-        chartPanel.setPreferredSize(new java.awt.Dimension(800, 600));
+        chartPanel.setPreferredSize(new java.awt.Dimension(1000, 1000));
         JFrame frame = new JFrame();
         frame.setContentPane(chartPanel);
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
@@ -36,13 +36,13 @@ public class Graficos {
         frame.setVisible(true);
     }
     public void graficoTI(DefaultCategoryDataset dataset, String nome){
-        JFreeChart barChart = ChartFactory.createBarChart(
-                "Resultados: "+nome, 
+        JFreeChart areaChart = ChartFactory.createBarChart(
+                "Resultados" + nome, 
                 "Tamanho do Vetor", 
-                "Quantidade de Trocas", 
+                "Quantidade", 
                 dataset);
-        ChartPanel chartPanel = new ChartPanel(barChart);
-        chartPanel.setPreferredSize(new java.awt.Dimension(800, 600));
+        ChartPanel chartPanel = new ChartPanel(areaChart);
+        chartPanel.setPreferredSize(new java.awt.Dimension(1000, 1000));
         JFrame frame = new JFrame();
         frame.setContentPane(chartPanel);
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
